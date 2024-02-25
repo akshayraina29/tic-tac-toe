@@ -84,7 +84,8 @@ function Game() {
             setWinner(players[turnOfPlayer].id);
             toast(`Player ${players[turnOfPlayer].id} have won, Restarting`, {
                 icon: "🏆",
-                className: "font-semibold"
+                className: "font-semibold",
+                duration: 2000
             });
             updateScore(players[turnOfPlayer].id);
             setMatchCount(matchCount + 1);
@@ -94,7 +95,8 @@ function Game() {
                 updateScore("T");
                 toast(`Match tie, Restarting`, {
                     icon: "🤝",
-                    className: "font-semibold"
+                    className: "font-semibold",
+                    duration: 2000
                 });
                 setMatchCount(matchCount + 1);
                 resetGame();
@@ -145,12 +147,14 @@ function Game() {
             if ([players.X.id, players.O.id].includes(winner)) {
                 toast(`Player ${winner} have won tournament, Restarting`, {
                     icon: "🏆",
-                    className: "font-semibold"
+                    className: "font-semibold",
+                    duration: 2000
                 });
             }
             else {
                 toast(`Tournament tied, Restarting`, {
-                    className: "font-semibold"
+                    className: "font-semibold",
+                    duration: 2000
                 });
             }
             const response = await ScoresAPI.storeScoresApi({
